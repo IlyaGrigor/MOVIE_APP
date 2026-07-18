@@ -90,7 +90,7 @@ export const MovieCard = ({movie}: MovieCardType) => {
 
                 <CardContent>
                     <Tooltip title={movie.title}
-                             disableHoverListener={movie.title.length <= 16}
+                             disableHoverListener={movie.title.length <= 14}
                              slotProps={{
                                  tooltip: {
                                      sx: {
@@ -100,8 +100,8 @@ export const MovieCard = ({movie}: MovieCardType) => {
                              }}>
                         <Typography variant="h6">
                             {
-                                movie.title.length >= 16 ?
-                                    `${movie.title.slice(0, 16)}...` : movie.title
+                                movie.title.length >= 14 ?
+                                    `${movie.title.slice(0, 14)}...` : movie.title
                             }
                         </Typography>
                     </Tooltip>

@@ -23,33 +23,21 @@ export const FilteredMovies = () => {
 
     return (
         <>
-            <Box sx={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "row"
-            }}>
-                <Box sx={{
-                    position: "absolute",
-                    left: 120,
-                    top: -20,
-                    width: -280,
-                }}>
-                    <MovieFilters
-                    filters={filters}
-                    onChange={setFilters}
-                />
-                </Box>
                 <PageContainer>
                     <Box
                         sx={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: 3,
                             py: 4,
                         }}
                     >
-                        <Box sx={{flexGrow: 1, minWidth: 0}}>
-                            {isFetching && !isLoading && <LinearProgress sx={{mb: 3}}/>}
+                        <MovieFilters
+                            filters={filters}
+                            onChange={setFilters}
+                        />
+
+                        <Box sx={{mt: 4}}>
+                            {isFetching && !isLoading && (
+                                <LinearProgress sx={{mb: 3}}/>
+                            )}
 
                             {isError && (
                                 <ErrorAlert
@@ -63,7 +51,10 @@ export const FilteredMovies = () => {
                                 <>
                                     <Box
                                         sx={{
-                                            opacity: isFetching && !isLoading ? 0.5 : 1,
+                                            opacity:
+                                                isFetching && !isLoading
+                                                    ? 0.5
+                                                    : 1,
                                             transition: "opacity 0.2s",
                                         }}
                                     >
@@ -99,7 +90,6 @@ export const FilteredMovies = () => {
                         </Box>
                     </Box>
                 </PageContainer>
-            </Box>
         </>
     );
 };
